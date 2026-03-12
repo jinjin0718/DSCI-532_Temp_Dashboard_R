@@ -2,7 +2,7 @@ library(dplyr)
 library(readr)
 
 # Load processed data
-df_processed <- read_csv("data/processed/df_processed.csv")
+df_processed <- read_csv("../data/processed/df_processed.csv")
 
 # Pre-aggregate yearly
 df_yearly <- df_processed |>
