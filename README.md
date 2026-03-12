@@ -63,7 +63,7 @@ The main application logic is located in the `src/` directory.
 │   ├── utils.R             # Helper functions and pre-aggregated data objects
 │   ├── data_processor.R    # Script for cleaning and preparing the dataset
 │   └── manifest.json       # Deployment configuration for the Shiny app
-├── README.md               # Project documentation and usage instructions
+└── README.md               # Project documentation and usage instructions
 ```
 
 ## Installation
@@ -83,6 +83,8 @@ Install packages:
 install.packages(c("shiny","bslib","dplyr","tidyr","ggplot2","plotly"))
 ```
 
+## Running the App
+
 Run the app locally: 
 
 ```bash
@@ -91,5 +93,7 @@ shiny::runApp("src")
 
 ## Contributors
 
-Emily Jin
+Shi Fan Jin
 
+## License
+This project is licensed under the MIT License. See the [MIT License](./LICENSE) file for details.
