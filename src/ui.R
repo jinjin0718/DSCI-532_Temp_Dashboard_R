@@ -59,7 +59,7 @@ seasonal_temp_card <- card(
 temp_plot_card <- card(
   card_header("Temperature Over Time"),
   div( # Card body with plot
-    plotOutput("temp_plot", height = "100%", width = "100%"),
+    plotlyOutput("temp_plot", height = "100%", width = "100%"),
     style = "height:100%; width:100%; min-height:0; flex:1;"
   ),
   style = "height: 100%; display: flex; flex-direction: column; min-height:0;",
@@ -87,30 +87,50 @@ table_card <- card(
 # ==========================================
 # 4. Assemble to Final UI Layout
 # ==========================================
+################### Left column of layout(3:9): The inputs and seasonal component
+left_column <- column(
+  width = 3,
+  wellPanel(
+    h4("Filters"),
+    country_selector,
+    baseline_year_input,
+    target_year_input
+  ),
+  br(),
+  h4("Seasonal Temperature"),
+  tableOutput("seasonal_temp_ui")
+)
+################### Right column of layout(3:9): The monthly line plot and table
+right_column <- column(
+  width = 9,
+  plotlyOutput("temp_plot"),
+  br(),
+  table_card
+)
+################### Final UI layout assemble
 ui_final <- fluidPage(
   titlePanel("Climate Snapshot: Temperature Comparison"),
-  
-  sidebarLayout(
-    sidebarPanel(
-      country_selector,
-      baseline_year_input,
-      target_year_input
-    ),
-    
-    # mainPanel(
-    #   tableOutput("seasonal_temp_ui"),
-    #   plotlyOutput("temp_plot"),
-    #   tableOutput("data_table")
-    # )
-    
-    mainPanel(
-      tableOutput("seasonal_temp_ui"),
-      plotlyOutput("temp_plot"),
-      table_card
-    )
-    
+  fluidRow(
+    left_column,
+    right_column
   )
 )
+
+# ui_final <- fluidPage(
+#   titlePanel("Climate Snapshot: Temperature Comparison"),
+#   sidebarLayout(
+#     sidebarPanel(
+#       country_selector,
+#       baseline_year_input,
+#       target_year_input
+#     ),
+#     mainPanel(
+#       tableOutput("seasonal_temp_ui"),
+#       plotlyOutput("temp_plot"),
+#       table_card
+#     )
+#   )
+# )
 
 
 
