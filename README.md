@@ -2,8 +2,8 @@
 
 | | |
 | :--- | :--- |
-| **License** | [![License](https://img.shields.io/github/license/UBC-MDS/DSCI-532_Temp_Dashboard_R?label=License)](LICENSE) |
-| **R** | [![R 4.0+](https://img.shields.io/badge/R-4.0+-blue.svg)](https://www.r-project.org/) |
+| **License** | [![GitHub license](https://img.shields.io/github/license/UBC-MDS/DSCI-532_Temp_Dashboard_R)](LICENSE) |
+| **R** | [![R](https://img.shields.io/badge/R-4.0+-blue.svg)](https://www.r-project.org/) |
 | **Status** | ![Status](https://img.shields.io/badge/status-active-brightgreen) |
 
 ## Overview
