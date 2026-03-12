@@ -58,12 +58,8 @@ seasonal_temp_card <- card(
 ################### Output: Monthly Temp Line Plot
 temp_plot_card <- card(
   card_header("Temperature Over Time"),
-  div( # Card body with plot
-    plotlyOutput("temp_plot", height = "100%", width = "100%"),
-    style = "height:100%; width:100%; min-height:0; flex:1;"
-  ),
-  style = "height: 100%; display: flex; flex-direction: column; min-height:0;",
-  class = "h-100"
+  plotlyOutput("temp_plot"),
+  class = "mb-3"
 )
 
 ################### Output: Data table for filtered data
@@ -72,17 +68,12 @@ table_card <- card(
     div(
       "Data Table",
       downloadButton("download_table_csv", "Export CSV", class = "btn-sm"),
-      class = "d-flex justify-content-between align-items-center w-100"
+      class = "d-flex justify-content-between align-items-center"
     )
   ),
-  div(
-    tableOutput("data_table"),
-    class = "data-table-compact"
-  ),
-  style = "min-height: 0; flex: 1;",
+  tableOutput("data_table"),
   class = "mb-3"
 )
-
 
 # ==========================================
 # 4. Assemble to Final UI Layout
@@ -115,22 +106,6 @@ ui_final <- fluidPage(
     right_column
   )
 )
-
-# ui_final <- fluidPage(
-#   titlePanel("Climate Snapshot: Temperature Comparison"),
-#   sidebarLayout(
-#     sidebarPanel(
-#       country_selector,
-#       baseline_year_input,
-#       target_year_input
-#     ),
-#     mainPanel(
-#       tableOutput("seasonal_temp_ui"),
-#       plotlyOutput("temp_plot"),
-#       table_card
-#     )
-#   )
-# )
 
 
 
