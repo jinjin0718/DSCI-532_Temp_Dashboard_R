@@ -83,24 +83,34 @@ table_card <- card(
   class = "mb-3"
 )
 
+
 # ==========================================
 # 4. Assemble to Final UI Layout
 # ==========================================
-ui_final <- page_fillable(
-  layout_sidebar(
-    sidebar = app_sidebar,
-    body = div(
-      # Optional: make body scrollable
-      style = "display: flex; flex-direction: column; gap: 1rem;",
-      # Outputs 
-      seasonal_temp_card,
-      temp_plot_card,
+ui_final <- fluidPage(
+  titlePanel("Climate Snapshot: Temperature Comparison"),
+  
+  sidebarLayout(
+    sidebarPanel(
+      country_selector,
+      baseline_year_input,
+      target_year_input
+    ),
+    
+    # mainPanel(
+    #   tableOutput("seasonal_temp_ui"),
+    #   plotlyOutput("temp_plot"),
+    #   tableOutput("data_table")
+    # )
+    
+    mainPanel(
+      tableOutput("seasonal_temp_ui"),
+      plotlyOutput("temp_plot"),
       table_card
     )
+    
   )
 )
-
-
 
 
 
